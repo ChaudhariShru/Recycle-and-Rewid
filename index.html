@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle & Rewind - Turn Waste into Worth</title>
+    
+    <!-- ✅ FIXED Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- ✅ FIXED Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- ✅ FIXED Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-recycle text-success me-2"></i>
+                <span class="text-success">Recycle</span> & <span class="text-primary">Rewind</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="price.html">Price List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pickup.html">Book Pickup</a>
+                    </li>
+                    <li class="nav-item" id="dashboardLink" style="display: none;">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item d-none" id="adminLink">
+                       <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                    <li class="nav-item" id="loginLink">
+                        <a class="nav-link btn btn-success text-white px-4 ms-2" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item" id="logoutLink" style="display: none;">
+                        <button class="nav-link btn btn-outline-danger px-4 ms-2" onclick="logoutUser()">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">
+                        Turn <span class="text-success">Waste</span> into <span class="text-warning">Worth</span>
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Join the recycling revolution! Sell your scrap, save the planet, and earn money. 
+                        We pick up from your doorstep.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="pickup.html" class="btn btn-success btn-lg px-5 rounded-pill">
+                            <i class="bi bi-calendar-check me-2"></i>Schedule Pickup
+                        </a>
+                        <a href="price.html" class="btn btn-outline-success btn-lg px-5 rounded-pill">
+                            <i class="bi bi-tag me-2"></i>View Prices
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <h3 class="fw-bold text-success mb-0">10K+</h3>
+                            <small class="text-muted">Happy Users</small>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="fw-bold text-success mb-0">50T+</h3>
+                            <small class="text-muted">Scrap Collected</small>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="fw-bold text-success mb-0">5000+</h3>
+                            <small class="text-muted">Trees Saved</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 text-center">
+                    <div class="hero-image-container">
+                        <div class="floating-icon icon-1">📦</div>
+                        <div class="floating-icon icon-2">♻️</div>
+                        <div class="floating-icon icon-3">🌱</div>
+                        <div class="floating-icon icon-4">💚</div>
+                        <div class="hero-circle">
+                            <i class="bi bi-recycle display-1 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">How It Works</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="step-card text-center p-4">
+                        <div class="step-icon mb-3">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <div class="step-number">1</div>
+                        <h5 class="fw-bold">Select Items</h5>
+                        <p class="text-muted small">Choose scrap items you want to sell</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="step-card text-center p-4">
+                        <div class="step-icon mb-3">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <div class="step-number">2</div>
+                        <h5 class="fw-bold">Schedule Pickup</h5>
+                        <p class="text-muted small">Choose date and time slot</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="step-card text-center p-4">
+                        <div class="step-icon mb-3">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <div class="step-number">3</div>
+                        <h5 class="fw-bold">We Collect</h5>
+                        <p class="text-muted small">Our team picks up from doorstep</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="step-card text-center p-4">
+                        <div class="step-icon mb-3">
+                            <i class="bi bi-cash-coin"></i>
+                        </div>
+                        <div class="step-number">4</div>
+                        <h5 class="fw-bold">Get Paid</h5>
+                        <p class="text-muted small">Receive instant payment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-2">What We Accept</h2>
+            <p class="text-center text-muted mb-5">We recycle all kinds of household and office scrap</p>
+            
+            <div class="row g-4">
+                <!-- Paper Category -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="category-card text-center p-4">
+                        <div class="category-icon paper-icon">📰</div>
+                        <h6 class="fw-bold mt-3">Paper</h6>
+                        <small class="text-muted">₹12-18/kg</small>
+                    </div>
+                </div>
+                
+                <!-- Plastic Category -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="category-card text-center p-4">
+                        <div class="category-icon plastic-icon">🧴</div>
+                        <h6 class="fw-bold mt-3">Plastic</h6>
+                        <small class="text-muted">₹8-15/kg</small>
+                    </div>
+                </div>
+                
+                <!-- Metal Category -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="category-card text-center p-4">
+                        <div class="category-icon metal-icon">🔩</div>
+                        <h6 class="fw-bold mt-3">Metals</h6>
+                        <small class="text-muted">₹25-200/kg</small>
+                    </div>
+                </div>
+                
+                <!-- E-Waste Category -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="category-card text-center p-4">
+                        <div class="category-icon ewaste-icon">📱</div>
+                        <h6 class="fw-bold mt-3">E-Waste</h6>
+                        <small class="text-muted">₹20-100/pc</small>
+                    </div>
+                </div>
+                
+                <!-- Glass Category -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="category-card text-center p-4">
+                        <div class="category-icon glass-icon">🫙</div>
+                        <h6 class="fw-bold mt-3">Glass</h6>
+                        <small class="text-muted">₹2-5/kg</small>
+                    </div>
+                </div>
+                
+                <!-- Clothes Category -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="category-card text-center p-4">
+                        <div class="category-icon clothes-icon">👕</div>
+                        <h6 class="fw-bold mt-3">Clothes</h6>
+                        <small class="text-muted">₹10-20/kg</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="pickup.html" class="btn btn-success btn-lg px-5 rounded-pill">
+                    Start Selling Now <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Impact Section -->
+    <section class="py-5 bg-success text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Your Impact Matters! 🌍</h2>
+                    <p class="lead mb-4">
+                        Every kilogram of scrap you recycle helps save trees, reduce pollution, 
+                        and conserve natural resources.
+                    </p>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="impact-stat p-3 rounded bg-white bg-opacity-10">
+                                <h3 class="fw-bold">🌳 1 Tree</h3>
+                                <small>Saved per 2kg paper</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="impact-stat p-3 rounded bg-white bg-opacity-10">
+                                <h3 class="fw-bold">💧 7000L</h3>
+                                <small>Water saved per ton</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="earth-animation">
+                        🌏
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-recycle text-success me-2"></i>Recycle & Rewind
+                    </h5>
+                    <p class="text-light">
+                        Making recycling easy and rewarding. Join us in creating a cleaner, 
+                        greener future for everyone.
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="price.html" class="text-light text-decoration-none">Price List</a></li>
+                        <li><a href="pickup.html" class="text-light text-decoration-none">Book Pickup</a></li>
+                        <li><a href="dashboard.html" class="text-light text-decoration-none">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">Contact Us</h6>
+                    <p class="text-light"><i class="bi bi-telephone me-2"></i>+91 98765 43210</p>
+                    <p class="text-light"><i class="bi bi-envelope me-2"></i>hello@recyclerewind.com</p>
+                    <p class="text-light"><i class="bi bi-geo-alt me-2"></i>Mumbai, India</p>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <p class="text-center text-muted mb-0">
+                © 2025 Recycle & Rewind. Made with 💚 for the planet.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js)"></script>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+   
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

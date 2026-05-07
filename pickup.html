@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- ✅ MUST be here -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Pickup - Recycle & Rewind</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+            <i class="bi bi-recycle text-success me-2"></i>
+            <span class="text-success">Recycle</span> & <span class="text-primary">Rewind</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="price.html">Price List</a></li>
+                <li class="nav-item"><a class="nav-link active" href="pickup.html">Book Pickup</a></li>
+                <li class="nav-item" id="dashboardLink" style="display:none;">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item" id="loginLink">
+                    <a class="nav-link btn btn-success text-white px-4 ms-2" href="login.html">Login</a>
+                </li>
+                <li class="nav-item" id="logoutLink" style="display:none;">
+                    <button class="nav-link btn btn-outline-danger px-4 ms-2" onclick="logoutUser()" aria-label="Logout">
+                        Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<div class="container py-4">
+    <div class="row">
+
+        <!-- LEFT SIDE -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-box-seam me-2"></i>Select Scrap Items</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="mb-4">
+                        <h6>📰 Paper</h6>
+                        <div class="row g-3" id="paperItems"></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6>🧴 Plastic</h6>
+                        <div class="row g-3" id="plasticItems"></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6>🔩 Metals</h6>
+                        <div class="row g-3" id="metalItems"></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6>📱 E-Waste</h6>
+                        <div class="row g-3" id="ewasteItems"></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6>🫙 Glass</h6>
+                        <div class="row g-3" id="glassItems"></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6>👕 Clothes</h6>
+                        <div class="row g-3" id="clothesItems"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm rounded-4 sticky-top pickup-sidebar">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-cart3 me-2"></i>Your Cart</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <div id="cartItems">
+                        <p class="text-muted text-center">
+                            <i class="bi bi-cart-x display-6 d-block mb-2"></i>
+                            No items added yet
+                        </p>
+                    </div>
+
+                    <div id="cartTotals" class="d-none">
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <span>Total:</span>
+                            <strong id="totalPrice">₹0</strong>
+                        </div>
+                    </div>
+                    <div id="loginPrompt" class="d-none mt-3">
+                        <a href="login.html" class="btn btn-success w-100" aria-label="Login to Book Pickup">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>
+                            Login First to Continue
+                        </a>
+                    </div>
+
+                    <div id="bookingForm" class="d-none mt-3">
+
+                        <textarea id="pickupAddress" class="form-control mb-2" placeholder="Enter Address"></textarea>
+
+                        <input type="date" id="pickupDate" class="form-control mb-2">
+
+                        <select id="pickupTime" class="form-control mb-2">
+                            <option value="">Select Time</option>
+                            <option>9AM-12PM</option>
+                            <option>12PM-3PM</option>
+                            <option>3PM-6PM</option>
+                        </select>
+
+                        <button class="btn btn-success w-100" onclick="submitPickup()" aria-label="Confirm Pickup">
+                            Confirm Pickup
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+            <h4>Pickup Scheduled!</h4>
+            <p>Your pickup has been booked successfully.</p>
+            <p id="impactMessage" class="mb-3"></p>
+            <button class="btn btn-success rounded-pill px-4" data-bs-dismiss="modal">
+            OK
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<!-- IMPORTANT -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
+

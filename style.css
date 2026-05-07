@@ -1,0 +1,601 @@
+                                        /* ============================================
+   RECYCLE & REWIND - Custom Styles
+   ============================================ */
+
+/* ---------- Global Styles ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* ---------- Navbar Styles ---------- */
+.navbar-brand {
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #198754 !important;
+}
+
+/* ---------- Hero Section ---------- */
+.hero-section {
+    background: linear-gradient(135deg, #f0fff4 0%, #e8f5e9 50%, #dcedc8 100%);
+    min-height: 80vh;
+    padding: 60px 0;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.hero-image-container {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-circle {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 60px rgba(25, 135, 84, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Floating Icons Animation */
+.floating-icon {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.icon-1 { top: 20%; left: 10%; animation-delay: 0s; }
+.icon-2 { top: 10%; right: 20%; animation-delay: 0.5s; }
+.icon-3 { bottom: 20%; left: 15%; animation-delay: 1s; }
+.icon-4 { bottom: 30%; right: 10%; animation-delay: 1.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ---------- Step Cards (How It Works) ---------- */
+.step-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.step-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.step-number {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: #e8f5e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #198754;
+    font-size: 0.9rem;
+}
+
+/* ---------- Category Cards ---------- */
+.category-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* ---------- Environmental Impact Section ---------- */
+.impact-stat {
+    transition: transform 0.3s ease;
+}
+
+.impact-stat:hover {
+    transform: scale(1.05);
+}
+
+.earth-animation {
+    font-size: 10rem;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- Auth Page Styles ---------- */
+.auth-icon i {
+    color: #198754;
+}
+
+#authTabs .nav-link {
+    color: #6c757d;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#authTabs .nav-link.active {
+    background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+    color: white;
+    border-color: transparent;
+}
+
+#authTabs .nav-link:hover:not(.active) {
+    background: #e8f5e9;
+    color: #198754;
+}
+
+/* ---------- Pickup Page Styles ---------- */
+.category-section {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.category-section:last-child {
+    border-bottom: none;
+}
+
+.category-title {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.category-emoji {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+/* Scrap Item Card */
+.scrap-item {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.scrap-item:hover {
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-color: #198754;
+}
+
+.scrap-item.selected {
+    background: #e8f5e9;
+    border-color: #198754;
+}
+
+.scrap-item-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.scrap-item-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.scrap-item-price {
+    font-size: 0.85rem;
+    color: #198754;
+    font-weight: 500;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quantity-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quantity-btn.minus {
+    background: #dc3545;
+    color: white;
+}
+
+.quantity-btn.plus {
+    background: #198754;
+    color: white;
+}
+
+.quantity-btn:hover {
+    transform: scale(1.1);
+}
+
+.quantity-value {
+    font-weight: bold;
+    min-width: 40px;
+    text-align: center;
+}
+
+.add-btn {
+    background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3);
+}
+
+/* Cart Item */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-icon {
+    font-size: 1.5rem;
+}
+
+.cart-item-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.cart-item-weight {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: #198754;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* ---------- Dashboard Styles ---------- */
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto;
+}
+
+.impact-badge {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Pickup History Card */
+.pickup-card {
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.pickup-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pickup-card-header {
+    background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+    color: white;
+    padding: 15px 20px;
+}
+
+.pickup-card-body {
+    padding: 20px;
+}
+
+.pickup-items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pickup-item-badge {
+    background: #e8f5e9;
+    color: #198754;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ---------- Price Page Styles ---------- */
+.category-icon-large {
+    font-size: 3rem;
+}
+
+.price-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.price-card.featured {
+    border: 2px solid #ffc107;
+}
+
+.price-card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.price-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #198754;
+    margin-bottom: 0;
+}
+
+/* ---------- Admin Page Styles ---------- */
+.admin-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* ---------- Success Animation ---------- */
+.success-animation i {
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ---------- Alert Styles ---------- */
+.alert-success {
+    background: #d1e7dd;
+    border: none;
+    color: #0f5132;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    border: none;
+    color: #842029;
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 40px 0;
+    }
+    
+    .hero-circle {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .hero-image-container {
+        height: 300px;
+        margin-top: 40px;
+    }
+    
+    .floating-icon {
+        font-size: 1.8rem;
+    }
+    
+    .step-card {
+        margin-bottom: 20px;
+    }
+    
+    .scrap-item {
+        padding: 12px;
+    }
+    
+    .scrap-item-icon {
+        font-size: 2rem;
+    }
+    
+    .earth-animation {
+        font-size: 6rem;
+    }
+}
+
+/* ---------- Button Hover Effects ---------- */
+.btn-success {
+    background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #157347 0%, #1aa179 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(25, 135, 84, 0.4);
+}
+
+.btn-outline-success {
+    border: 2px solid #198754;
+    color: #198754;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-success:hover {
+    background: #198754;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ---------- Card Hover Effects ---------- */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Loading Spinner ---------- */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* ---------- Empty State ---------- */
+.empty-state {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: #dee2e6;
+    margin-bottom: 20px;
+}
+
+/* ---------- Scrollbar Styling ---------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #198754;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #157347;
+}
+

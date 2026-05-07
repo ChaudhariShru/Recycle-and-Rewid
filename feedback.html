@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback - Recycle & Rewind</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 420px;
+      margin: 80px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2ecc71;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    /* ⭐ STAR RATING */
+    .stars {
+      display: flex;
+      gap: 8px;
+      font-size: 32px;
+      cursor: pointer;
+      margin: 10px 0 20px;
+    }
+
+    .star {
+      color: #ccc;
+      transition: color 0.2s ease;
+    }
+
+    .star.active {
+      color: #f1c40f;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 15px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #27ae60;
+    }
+
+    .success {
+      text-align: center;
+      color: green;
+      margin-top: 15px;
+      display: none;
+    }
+
+  </style>
+</head>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<body>
+
+<div class="container">
+
+  <h2>We Value Your Feedback ⭐</h2>
+
+  <form id="feedbackForm">
+
+    <!-- STAR RATING -->
+    <label>Rating:</label>
+    <div class="stars" id="starContainer">
+      <span class="star" data-value="1">&#9733;</span>
+      <span class="star" data-value="2">&#9733;</span>
+      <span class="star" data-value="3">&#9733;</span>
+      <span class="star" data-value="4">&#9733;</span>
+      <span class="star" data-value="5">&#9733;</span>
+    </div>
+
+    <input type="hidden" id="ratingValue" value="0">
+
+    <!-- COMMENT -->
+    <label>Comments:</label>
+    <textarea id="comment" rows="5" placeholder="Write your feedback..."></textarea>
+
+    <button type="submit">Submit Feedback</button>
+
+  </form>
+
+  <div class="success" id="successMsg">
+    Thank you for your feedback! 🎉
+  </div>
+
+</div>
+
+<script>
+    const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  databaseURL: "https://YOUR_PROJECT.firebaseio.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "XXXX",
+  appId: "XXXX"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.database();
+  // ⭐ STAR RATING LOGIC
+  const stars = document.querySelectorAll(".star");
+  const ratingInput = document.getElementById("ratingValue");
+
+  stars.forEach(star => {
+    star.addEventListener("click", () => {
+      let value = star.getAttribute("data-value");
+      ratingInput.value = value;
+
+      stars.forEach(s => s.classList.remove("active"));
+
+      for (let i = 0; i < value; i++) {
+        stars[i].classList.add("active");
+      }
+    });
+  });
+
+  // 📩 FORM SUBMIT (demo - later connect Firebase)
+  document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const rating = document.getElementById("ratingValue").value;
+  const comment = document.getElementById("comment").value;
+
+  if (rating == 0) {
+    alert("Please select a rating!");
+    return;
+  }
+
+  // Create feedback object
+  const feedbackData = {
+    rating: rating,
+    comment: comment,
+    timestamp: new Date().toISOString()
+  };
+
+  // Save to Firebase
+  db.ref("feedbacks").push(feedbackData)
+    .then(() => {
+      document.getElementById("successMsg").style.display = "block";
+      this.reset();
+      document.querySelectorAll(".star").forEach(s => s.classList.remove("active"));
+      document.getElementById("ratingValue").value = 0;
+    })
+    .catch((error) => {
+      console.log("Error saving feedback:", error);
+    });
+});
+
+</script>
+
+</body>
+</html>
